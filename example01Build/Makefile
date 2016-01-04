@@ -143,48 +143,48 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named darkPhoton
+# Target rules for targets named example01
 
 # Build rule for target.
-darkPhoton: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 darkPhoton
-.PHONY : darkPhoton
+example01: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 example01
+.PHONY : example01
 
 # fast build rule for target.
-darkPhoton/fast:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/build
-.PHONY : darkPhoton/fast
+example01/fast:
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/build
+.PHONY : example01/fast
 
-darkPhoton.o: darkPhoton.cc.o
-.PHONY : darkPhoton.o
+example01.o: example01.cc.o
+.PHONY : example01.o
 
 # target to build an object file
-darkPhoton.cc.o:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/darkPhoton.cc.o
-.PHONY : darkPhoton.cc.o
+example01.cc.o:
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/example01.cc.o
+.PHONY : example01.cc.o
 
-darkPhoton.i: darkPhoton.cc.i
-.PHONY : darkPhoton.i
+example01.i: example01.cc.i
+.PHONY : example01.i
 
 # target to preprocess a source file
-darkPhoton.cc.i:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/darkPhoton.cc.i
-.PHONY : darkPhoton.cc.i
+example01.cc.i:
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/example01.cc.i
+.PHONY : example01.cc.i
 
-darkPhoton.s: darkPhoton.cc.s
-.PHONY : darkPhoton.s
+example01.s: example01.cc.s
+.PHONY : example01.s
 
 # target to generate assembly for a file
-darkPhoton.cc.s:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/darkPhoton.cc.s
-.PHONY : darkPhoton.cc.s
+example01.cc.s:
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/example01.cc.s
+.PHONY : example01.cc.s
 
 src/ActionInitialization.o: src/ActionInitialization.cc.o
 .PHONY : src/ActionInitialization.o
 
 # target to build an object file
 src/ActionInitialization.cc.o:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/ActionInitialization.cc.o
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/ActionInitialization.cc.o
 .PHONY : src/ActionInitialization.cc.o
 
 src/ActionInitialization.i: src/ActionInitialization.cc.i
@@ -192,7 +192,7 @@ src/ActionInitialization.i: src/ActionInitialization.cc.i
 
 # target to preprocess a source file
 src/ActionInitialization.cc.i:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/ActionInitialization.cc.i
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/ActionInitialization.cc.i
 .PHONY : src/ActionInitialization.cc.i
 
 src/ActionInitialization.s: src/ActionInitialization.cc.s
@@ -200,7 +200,7 @@ src/ActionInitialization.s: src/ActionInitialization.cc.s
 
 # target to generate assembly for a file
 src/ActionInitialization.cc.s:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/ActionInitialization.cc.s
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/ActionInitialization.cc.s
 .PHONY : src/ActionInitialization.cc.s
 
 src/DetectorConstruction.o: src/DetectorConstruction.cc.o
@@ -208,7 +208,7 @@ src/DetectorConstruction.o: src/DetectorConstruction.cc.o
 
 # target to build an object file
 src/DetectorConstruction.cc.o:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/DetectorConstruction.cc.o
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/DetectorConstruction.cc.o
 .PHONY : src/DetectorConstruction.cc.o
 
 src/DetectorConstruction.i: src/DetectorConstruction.cc.i
@@ -216,7 +216,7 @@ src/DetectorConstruction.i: src/DetectorConstruction.cc.i
 
 # target to preprocess a source file
 src/DetectorConstruction.cc.i:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/DetectorConstruction.cc.i
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/DetectorConstruction.cc.i
 .PHONY : src/DetectorConstruction.cc.i
 
 src/DetectorConstruction.s: src/DetectorConstruction.cc.s
@@ -224,7 +224,7 @@ src/DetectorConstruction.s: src/DetectorConstruction.cc.s
 
 # target to generate assembly for a file
 src/DetectorConstruction.cc.s:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/DetectorConstruction.cc.s
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/DetectorConstruction.cc.s
 .PHONY : src/DetectorConstruction.cc.s
 
 src/DetectorMessenger.o: src/DetectorMessenger.cc.o
@@ -232,7 +232,7 @@ src/DetectorMessenger.o: src/DetectorMessenger.cc.o
 
 # target to build an object file
 src/DetectorMessenger.cc.o:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/DetectorMessenger.cc.o
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/DetectorMessenger.cc.o
 .PHONY : src/DetectorMessenger.cc.o
 
 src/DetectorMessenger.i: src/DetectorMessenger.cc.i
@@ -240,7 +240,7 @@ src/DetectorMessenger.i: src/DetectorMessenger.cc.i
 
 # target to preprocess a source file
 src/DetectorMessenger.cc.i:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/DetectorMessenger.cc.i
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/DetectorMessenger.cc.i
 .PHONY : src/DetectorMessenger.cc.i
 
 src/DetectorMessenger.s: src/DetectorMessenger.cc.s
@@ -248,7 +248,7 @@ src/DetectorMessenger.s: src/DetectorMessenger.cc.s
 
 # target to generate assembly for a file
 src/DetectorMessenger.cc.s:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/DetectorMessenger.cc.s
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/DetectorMessenger.cc.s
 .PHONY : src/DetectorMessenger.cc.s
 
 src/EventAction.o: src/EventAction.cc.o
@@ -256,7 +256,7 @@ src/EventAction.o: src/EventAction.cc.o
 
 # target to build an object file
 src/EventAction.cc.o:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/EventAction.cc.o
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/EventAction.cc.o
 .PHONY : src/EventAction.cc.o
 
 src/EventAction.i: src/EventAction.cc.i
@@ -264,7 +264,7 @@ src/EventAction.i: src/EventAction.cc.i
 
 # target to preprocess a source file
 src/EventAction.cc.i:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/EventAction.cc.i
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/EventAction.cc.i
 .PHONY : src/EventAction.cc.i
 
 src/EventAction.s: src/EventAction.cc.s
@@ -272,7 +272,7 @@ src/EventAction.s: src/EventAction.cc.s
 
 # target to generate assembly for a file
 src/EventAction.cc.s:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/EventAction.cc.s
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/EventAction.cc.s
 .PHONY : src/EventAction.cc.s
 
 src/PrimaryGeneratorAction.o: src/PrimaryGeneratorAction.cc.o
@@ -280,7 +280,7 @@ src/PrimaryGeneratorAction.o: src/PrimaryGeneratorAction.cc.o
 
 # target to build an object file
 src/PrimaryGeneratorAction.cc.o:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/PrimaryGeneratorAction.cc.o
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/PrimaryGeneratorAction.cc.o
 .PHONY : src/PrimaryGeneratorAction.cc.o
 
 src/PrimaryGeneratorAction.i: src/PrimaryGeneratorAction.cc.i
@@ -288,7 +288,7 @@ src/PrimaryGeneratorAction.i: src/PrimaryGeneratorAction.cc.i
 
 # target to preprocess a source file
 src/PrimaryGeneratorAction.cc.i:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/PrimaryGeneratorAction.cc.i
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/PrimaryGeneratorAction.cc.i
 .PHONY : src/PrimaryGeneratorAction.cc.i
 
 src/PrimaryGeneratorAction.s: src/PrimaryGeneratorAction.cc.s
@@ -296,7 +296,7 @@ src/PrimaryGeneratorAction.s: src/PrimaryGeneratorAction.cc.s
 
 # target to generate assembly for a file
 src/PrimaryGeneratorAction.cc.s:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/PrimaryGeneratorAction.cc.s
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/PrimaryGeneratorAction.cc.s
 .PHONY : src/PrimaryGeneratorAction.cc.s
 
 src/RingParam.o: src/RingParam.cc.o
@@ -304,7 +304,7 @@ src/RingParam.o: src/RingParam.cc.o
 
 # target to build an object file
 src/RingParam.cc.o:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/RingParam.cc.o
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/RingParam.cc.o
 .PHONY : src/RingParam.cc.o
 
 src/RingParam.i: src/RingParam.cc.i
@@ -312,7 +312,7 @@ src/RingParam.i: src/RingParam.cc.i
 
 # target to preprocess a source file
 src/RingParam.cc.i:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/RingParam.cc.i
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/RingParam.cc.i
 .PHONY : src/RingParam.cc.i
 
 src/RingParam.s: src/RingParam.cc.s
@@ -320,7 +320,7 @@ src/RingParam.s: src/RingParam.cc.s
 
 # target to generate assembly for a file
 src/RingParam.cc.s:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/RingParam.cc.s
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/RingParam.cc.s
 .PHONY : src/RingParam.cc.s
 
 src/RunAction.o: src/RunAction.cc.o
@@ -328,7 +328,7 @@ src/RunAction.o: src/RunAction.cc.o
 
 # target to build an object file
 src/RunAction.cc.o:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/RunAction.cc.o
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/RunAction.cc.o
 .PHONY : src/RunAction.cc.o
 
 src/RunAction.i: src/RunAction.cc.i
@@ -336,7 +336,7 @@ src/RunAction.i: src/RunAction.cc.i
 
 # target to preprocess a source file
 src/RunAction.cc.i:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/RunAction.cc.i
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/RunAction.cc.i
 .PHONY : src/RunAction.cc.i
 
 src/RunAction.s: src/RunAction.cc.s
@@ -344,7 +344,7 @@ src/RunAction.s: src/RunAction.cc.s
 
 # target to generate assembly for a file
 src/RunAction.cc.s:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/RunAction.cc.s
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/RunAction.cc.s
 .PHONY : src/RunAction.cc.s
 
 src/TestHit.o: src/TestHit.cc.o
@@ -352,7 +352,7 @@ src/TestHit.o: src/TestHit.cc.o
 
 # target to build an object file
 src/TestHit.cc.o:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/TestHit.cc.o
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/TestHit.cc.o
 .PHONY : src/TestHit.cc.o
 
 src/TestHit.i: src/TestHit.cc.i
@@ -360,7 +360,7 @@ src/TestHit.i: src/TestHit.cc.i
 
 # target to preprocess a source file
 src/TestHit.cc.i:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/TestHit.cc.i
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/TestHit.cc.i
 .PHONY : src/TestHit.cc.i
 
 src/TestHit.s: src/TestHit.cc.s
@@ -368,7 +368,7 @@ src/TestHit.s: src/TestHit.cc.s
 
 # target to generate assembly for a file
 src/TestHit.cc.s:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/TestHit.cc.s
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/TestHit.cc.s
 .PHONY : src/TestHit.cc.s
 
 src/TestSD.o: src/TestSD.cc.o
@@ -376,7 +376,7 @@ src/TestSD.o: src/TestSD.cc.o
 
 # target to build an object file
 src/TestSD.cc.o:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/TestSD.cc.o
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/TestSD.cc.o
 .PHONY : src/TestSD.cc.o
 
 src/TestSD.i: src/TestSD.cc.i
@@ -384,7 +384,7 @@ src/TestSD.i: src/TestSD.cc.i
 
 # target to preprocess a source file
 src/TestSD.cc.i:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/TestSD.cc.i
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/TestSD.cc.i
 .PHONY : src/TestSD.cc.i
 
 src/TestSD.s: src/TestSD.cc.s
@@ -392,7 +392,7 @@ src/TestSD.s: src/TestSD.cc.s
 
 # target to generate assembly for a file
 src/TestSD.cc.s:
-	$(MAKE) -f CMakeFiles/darkPhoton.dir/build.make CMakeFiles/darkPhoton.dir/src/TestSD.cc.s
+	$(MAKE) -f CMakeFiles/example01.dir/build.make CMakeFiles/example01.dir/src/TestSD.cc.s
 .PHONY : src/TestSD.cc.s
 
 # Help Target
@@ -401,16 +401,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... darkPhoton"
 	@echo "... edit_cache"
+	@echo "... example01"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... darkPhoton.o"
-	@echo "... darkPhoton.i"
-	@echo "... darkPhoton.s"
+	@echo "... example01.o"
+	@echo "... example01.i"
+	@echo "... example01.s"
 	@echo "... src/ActionInitialization.o"
 	@echo "... src/ActionInitialization.i"
 	@echo "... src/ActionInitialization.s"

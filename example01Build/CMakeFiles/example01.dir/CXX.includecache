@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/local1/GeantBootCamp/example01/darkPhoton.cc
+/home/local1/GeantBootCamp/example01/example01.cc
 DetectorConstruction.hh
 /home/local1/GeantBootCamp/example01/DetectorConstruction.hh
 ActionInitialization.hh
