@@ -1,9 +1,9 @@
 //
 /*
- *Dark photon test platform for various known E&M processes
+ * Main Program for example01
  *
  *!!!History:
- * CJC 6.15.14 Created
+ * CJC 23.12.15 Created
  *
  *file: example01.cc
  */
@@ -65,6 +65,7 @@ int main(int argc, char** argv)
 // 3. Setting the action initialization
 // 4. Initializing the G4 kernel
    */
+
   //use specific physics list
   G4VModularPhysicsList* physicsList = new FTFP_BERT; 
   physicsList->RegisterPhysics(new G4StepLimiterPhysics());
