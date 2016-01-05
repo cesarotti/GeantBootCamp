@@ -2,6 +2,7 @@
  * Dark Photon Primary Generator Action
  * !!!History
  *    CJC 6.14.15 created
+ *    CJC 1.4.16 MODIFIED
  *
  * file: Primary Generator Action
  *
@@ -27,30 +28,28 @@
 #include "Randomize.hh"
 
 PrimaryGeneratorAction::PrimaryGeneratorAction()
-  : G4VUserPrimaryGeneratorAction(),
-    angle(0)
+  : G4VUserPrimaryGeneratorAction()
 {
   G4cout << "Primaries started" << G4endl;
   G4int nofParticles = 1;
+
+  //Basic option, only fires number of particles with given kinetic info
   fParticleGun = new G4ParticleGun(nofParticles);
 
   // default particle kinematic
 
   G4ParticleDefinition* particleDefinition 
-    = G4ParticleTable::GetParticleTable()->FindParticle("gamma");
+    = G4ParticleTable::GetParticleTable()->FindParticle("gamma"); //Choose particle
 
-  fParticleGun->SetParticleDefinition(particleDefinition);
+  fParticleGun->SetParticleDefinition(particleDefinition); //Define
 
-  angle = false;
-
-  if (angle)
-    {fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,.0612,1.));}
-  else 
-    {fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));}
-
+  //Direction of beam
+  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.)); 
+ 
 
   //KINETIC ENERGY
   fParticleGun->SetParticleEnergy(300*MeV);
+
 }
 
 PrimaryGeneratorAction::~PrimaryGeneratorAction()
@@ -71,7 +70,8 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 
   G4double worldZHalfLength = 0;
   G4LogicalVolume* worldLV
-    = G4LogicalVolumeStore::GetInstance()->GetVolume("World");
+    = G4LogicalVolumeStore::GetInstance()->GetVolume("World"); //Defined in DetectorConstruction.cc
+
   G4Box* worldBox = NULL;
   if ( worldLV ) worldBox = dynamic_cast<G4Box*>(worldLV->GetSolid());
   if ( worldBox ) worldZHalfLength = worldBox->GetZHalfLength();
@@ -83,6 +83,6 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 
   fParticleGun->SetParticlePosition(G4ThreeVector(0., 0., -worldZHalfLength));
 
-  fParticleGun->GeneratePrimaryVertex(anEvent);
+  fParticleGun->GeneratePrimaryVertex(anEvent); //Creates event to run
  
 }
