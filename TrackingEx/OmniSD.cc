@@ -46,16 +46,7 @@ G4int hceID =
   G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]); 
  hce -> AddHitsCollection( hceID, fHitsCollection);
 
-  /*
-  fHitsCollection 
-    = new OmniHitsCollection(SensitiveDetectorName, collectionName[0]); 
 
-  // Add this collection in hce
-
-  G4int hcID 
-    = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
-  hce->AddHitsCollection( hcID, fHitsCollection ); 
-  */
 }
 
 G4bool OmniSD::ProcessHits(G4Step* step, 
@@ -67,6 +58,9 @@ G4bool OmniSD::ProcessHits(G4Step* step,
 
    OmniHit* hit = new OmniHit();
 
+
+   //OUTDATED
+   //How to link hits with logical volumes
    /*
   G4TouchableHistory* touchable 
     = (G4TouchableHistory*)(step->GetPreStepPoint()->GetTouchable());

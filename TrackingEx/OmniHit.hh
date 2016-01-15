@@ -92,7 +92,7 @@ private:
   G4double fParEng;
 };
 
-//Allow for a hits collection of OmniHits
+//Allow for a hits collection of OmniHits, needed for SD
 typedef G4THitsCollection<OmniHit> OmniHitsCollection;
 
 extern G4ThreadLocal G4Allocator<OmniHit>* OmniHitAllocator;
