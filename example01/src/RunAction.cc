@@ -16,7 +16,7 @@
 #include "G4Run.hh"
 #include "G4RunManager.hh"
 
-#include "Analysis.hh"
+#include "Analysis.hh" //This is only a header file that specifies a ROOT output
 #include "G4SystemOfUnits.hh"
 
 

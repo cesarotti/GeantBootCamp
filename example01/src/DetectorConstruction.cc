@@ -224,7 +224,7 @@ G4LogicalVolume* crystalLV =
 
 
 
- return worldPV;
+ return worldPV; //Return world physical volume!
 
 }
 

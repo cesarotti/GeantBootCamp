@@ -62,7 +62,7 @@ void EventAction::BeginOfEventAction(const G4Event* /* run*/)
 
   if(fHCID==-1) {
     G4SDManager* sdMan = G4SDManager::GetSDMpointer();
-    fHCID = sdMan->GetCollectionID("TestHitsCollection");
+    fHCID = sdMan->GetCollectionID("TestHitsCollection"); //Access Hits Collection
   }
 
 }
