@@ -38,17 +38,20 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
 
   // default particle kinematic
 
+  // Choose particle
   G4ParticleDefinition* particleDefinition 
-    = G4ParticleTable::GetParticleTable()->FindParticle("gamma"); //Choose particle
+    = G4ParticleTable::GetParticleTable()->FindParticle("gamma"); 
 
-  fParticleGun->SetParticleDefinition(particleDefinition); //Define
+  fParticleGun->SetParticleDefinition(particleDefinition);
 
   //Direction of beam
   fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.)); 
  
 
-  //KINETIC ENERGY
-  fParticleGun->SetParticleEnergy(300*MeV);
+  //Note, this sets the KINETIC energy of the particle, not the TOTAL
+  // for HEP, this is probably a negligible distinction
+  
+fParticleGun->SetParticleEnergy(1*GeV);
 
 }
 

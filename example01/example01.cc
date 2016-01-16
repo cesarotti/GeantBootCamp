@@ -71,10 +71,11 @@ int main(int argc, char** argv)
   physicsList->RegisterPhysics(new G4StepLimiterPhysics());
   runManager->SetUserInitialization(physicsList);
 
-
+  //Define detector Construction
   DetectorConstruction* test = new DetectorConstruction();
   runManager->SetUserInitialization(test);
-  //!!!
+
+  // Action Initialization
   runManager->SetUserInitialization(new ActionInitialization());
 
   //Initialize G4 kernel
@@ -95,6 +96,8 @@ int main(int argc, char** argv)
   G4UImanager* UImanager = G4UImanager::GetUIpointer();
   //!!!!
   //Don't want to hear it, Geant.
+
+  /*
   UImanager->ApplyCommand("/tracking/verbose 0");
   UImanager->ApplyCommand("/control/verbose 0");
   UImanager->ApplyCommand("/run/verbose 0");
@@ -102,6 +105,8 @@ int main(int argc, char** argv)
   UImanager->ApplyCommand("/run/particle/verbose 0");
   UImanager->ApplyCommand("/process/verbose 0");
   UImanager->ApplyCommand("/vis/set/verbose 0");
+  */
+
 
 
     //batch mode

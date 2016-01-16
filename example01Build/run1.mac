@@ -1,0 +1,21 @@
+#
+# Macro file for "example01.cc"
+#
+# CREATED: CJC 1/15/16
+#
+#
+
+# Check if these do the right thing
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+
+#
+# This simulation is to measure the spread in energy deposition
+# of photons in CsI crystals, so choose the particle to be
+# photon for the particle (gamma), and adjust energy
+#
+
+/gun/particle gamma
+/gun/energy 200 MeV
+/run/beamOn 100
