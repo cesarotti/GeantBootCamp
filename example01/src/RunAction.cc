@@ -29,7 +29,7 @@ RunAction::RunAction()
   G4RunManager::GetRunManager()->SetPrintProgress(1);
 
   G4AnalysisManager* analysisMan = G4AnalysisManager::Instance();
-  analysisMan->SetVerboseLevel(2);
+  analysisMan->SetVerboseLevel(0);
 
   analysisMan->CreateNtuple("CalorimeterData", "Energy_In_Crystals"); 
   //Create a container for each ring

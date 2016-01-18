@@ -58,7 +58,7 @@ EventAction::~EventAction()
 //Reset your variables
 void EventAction::BeginOfEventAction(const G4Event* /* run*/)
 {
-  G4cout << "Being of Event Action" << G4endl;
+  
 
   if(fHCID==-1) {
     G4SDManager* sdMan = G4SDManager::GetSDMpointer();
@@ -87,7 +87,7 @@ G4double EventAction::CalcTheta(G4double x, G4double y)
 //Add verbosity
 void EventAction::EndOfEventAction(const G4Event* event)
 {
-  G4cout << "End of Event Action" << G4endl;
+ 
 
   G4HCofThisEvent* hce = event->GetHCofThisEvent();
   if (!hce)

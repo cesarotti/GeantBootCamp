@@ -37,8 +37,8 @@ class RingParam : public G4VPVParameterisation
 
     virtual ~RingParam();
    
-    void ComputeTransformation (const G4int copyNo,
-                                G4VPhysicalVolume* physVol) const;
+  void ComputeTransformation (const G4int copyNo,
+                              G4VPhysicalVolume* physVol) const;
     
     void ComputeDimensions (G4Tubs & ring, const G4int copyNo,
                             const G4VPhysicalVolume* physVol) const;

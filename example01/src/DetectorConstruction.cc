@@ -135,11 +135,7 @@ G4VPhysicalVolume* DetectorConstruction::DefineVolumes()
 
   //Sizes and lengths
 
-  G4int size = 30; 
-
   G4double crystalLength = 2.54*12.0*cm; 
-  G4double crystalFace = 5.0*cm;
-
 
   G4double worldLength = 20*m+12*2.54*cm;
 

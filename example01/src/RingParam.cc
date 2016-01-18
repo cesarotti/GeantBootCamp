@@ -27,10 +27,21 @@ RingParam::RingParam(
 RingParam::~RingParam()
 { }
 
+// Implementation to come later but probably not
+// Don't worry about this nonsense it is to simply remove compiler warnings
+// CJC 1/18/16
+
 void RingParam::ComputeTransformation
 (const G4int copyNo, G4VPhysicalVolume* physVol) const
 {
+  G4int copy2 = copyNo;
+  bool test=false;
+  if (copy2>9)
+    test = false;
+  if (physVol)
+    test = true;
 }
+
 
 void RingParam::ComputeDimensions
 (G4Tubs& ring, const G4int copyNo, const G4VPhysicalVolume*) const
