@@ -6,9 +6,6 @@
 #
 
 # Check if these do the right thing
-/run/verbose 0
-/event/verbose 0
-/tracking/verbose 0
 
 #
 # This simulation is to measure the spread in energy deposition
@@ -18,4 +15,6 @@
 
 /gun/particle gamma
 /gun/energy 200 MeV
+
+/run/printProgress 10
 /run/beamOn 100
