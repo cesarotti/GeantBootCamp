@@ -47,6 +47,13 @@
 int main(int argc, char** argv)
 {
 
+  //To determine batch or interactive mode
+  
+  G4UIExecutive* ui = 0;
+  if ( argc == 1 ) {
+    ui = new G4UIExecutive(argc, argv);
+  }
+
   //Choose the random engine
 
   G4Random::setTheEngine(new CLHEP::RanecuEngine);
@@ -90,15 +97,8 @@ int main(int argc, char** argv)
   visManager->Initialize();
 #endif
   
-  
- 
-  
-  //Interface manager
   G4UImanager* UImanager = G4UImanager::GetUIpointer();
-
-
-
-  /*
+  
   UImanager->ApplyCommand("/tracking/verbose 0");
   UImanager->ApplyCommand("/control/verbose 0");
   UImanager->ApplyCommand("/run/verbose 0");
@@ -106,37 +106,35 @@ int main(int argc, char** argv)
   UImanager->ApplyCommand("/run/particle/verbose 0");
   UImanager->ApplyCommand("/process/verbose 0");
   UImanager->ApplyCommand("/vis/set/verbose 0");
-  */
-
+  
 
 
     //batch mode
-    if (argc !=1)
+    if ( ! ui)
       {
-	G4String command = "/control/execture ";
+	G4String command = "/control/execute ";
 	G4String fileName = argv[1]; 
 	UImanager->ApplyCommand(command+fileName);
       }
     else
-      {   // interactive mode: define UI session
-#ifdef G4UI_USE
-	G4UIExecutive* ui = new G4UIExecutive(argc, argv);
-
+      {
+	#ifdef G4UI_USE
+	
+	
 	//checks if visualization is used
 	
-	
-#ifdef G4VIS_USE
+	#ifdef G4VIS_USE
 	UImanager->ApplyCommand("/control/execute init_vis.mac");
 	
-  #else
+	#else
 	
 	UImanager->ApplyCommand("/control/execute init.mac");
-   #endif
+	#endif
 	if (ui->IsGUI())
 	  UImanager->ApplyCommand("/control/execute gui.mac");
-          ui->SessionStart();
-	  delete ui;
-#endif
+	ui->SessionStart();
+	delete ui;
+	#endif
       }
 
 
