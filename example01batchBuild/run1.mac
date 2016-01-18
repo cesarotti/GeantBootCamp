@@ -13,8 +13,20 @@
 # photon for the particle (gamma), and adjust energy
 #
 
+# First, turn off as much output as possible
+
+/tracking/verbose 0
+/control/verbose 0
+/run/verbose 0
+/event/verbose 0
+/run/particle/verbose 0
+/process/verbose 0
+/analysis/verbose 0
+
+# Actual run specifications
+
 /gun/particle gamma
-/gun/energy 200 MeV
+/gun/energy 50 MeV
 
 /run/printProgress 10
 /run/beamOn 100

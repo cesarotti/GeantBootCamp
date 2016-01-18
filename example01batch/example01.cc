@@ -95,19 +95,6 @@ int main(int argc, char** argv)
   
   //Interface manager
   G4UImanager* UImanager = G4UImanager::GetUIpointer();
-
-
-
-  /*
-  UImanager->ApplyCommand("/tracking/verbose 0");
-  UImanager->ApplyCommand("/control/verbose 0");
-  UImanager->ApplyCommand("/run/verbose 0");
-  UImanager->ApplyCommand("/event/verbose 0");
-  UImanager->ApplyCommand("/run/particle/verbose 0");
-  UImanager->ApplyCommand("/process/verbose 0");
-  UImanager->ApplyCommand("/vis/set/verbose 0");
-  */
-
   G4String command= "/control/execute "; 
   G4String fileName = argv[1]; 
   UImanager->ApplyCommand(command+fileName); 

@@ -30,7 +30,7 @@
 PrimaryGeneratorAction::PrimaryGeneratorAction()
   : G4VUserPrimaryGeneratorAction()
 {
-  G4cout << "Primaries started" << G4endl;
+  
   G4int nofParticles = 1;
 
   //Basic option, only fires number of particles with given kinetic info
@@ -64,7 +64,7 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
 
-  G4cout << "Generating Primaries" << G4endl;
+  
   // This function is called at the begining of event
 
   // In order to avoid dependence of PrimaryGeneratorAction
