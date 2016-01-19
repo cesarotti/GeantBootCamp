@@ -13,14 +13,12 @@ public:
  
   void ConstructParticle();
   void ConstructProcess();
+
   void SetCuts();
 
 private:
-  
+
   void ConstructEM();
-  void ConstructBremsstrahlung();
-  void ConstructPositronNuclear();
-  void ConstructElectronNuclear();
 
 };
 
