@@ -27,7 +27,7 @@ RingParam::RingParam(
 RingParam::~RingParam()
 { }
 
-// Implementation to come later but probably not
+// Not necessary as objects 
 // Don't worry about this nonsense it is to simply remove compiler warnings
 // CJC 1/18/16
 
