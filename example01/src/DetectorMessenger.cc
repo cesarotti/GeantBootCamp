@@ -24,8 +24,8 @@ DetectorMessenger::DetectorMessenger(DetectorConstruction* Det)
   fDetDirectory = new G4UIdirectory("/example01/det/");
   fDetDirectory->SetGuidance("Detector construction control");
 
-  fCalMatCmd = new G4UIcmdWithAString("/example01/det/setCalorMaterial",this);
-  fCalMatCmd->SetGuidance("Select Material of the Calorimeter");
+  fCalMatCmd = new G4UIcmdWithAString("/example01/det/setTargetMaterial",this);
+  fCalMatCmd->SetGuidance("Select Material of the Target");
   fCalMatCmd->SetParameterName("choice",false);
   fCalMatCmd->AvailableForStates(G4State_PreInit, G4State_Idle);
 
@@ -53,4 +53,10 @@ void DetectorMessenger::SetNewValue(G4UIcommand* command,G4String newValue)
     fDetectorConstruction
       ->SetMaxStep(fStepMaxCmd->GetNewDoubleValue(newValue));
   }   
+  
+  if( command == fCalMatCmd )
+    {
+      fDetectorConstruction 
+	->SetTargetMaterial(newValue); 
+    }
 }

@@ -56,10 +56,14 @@ private:
 
   //data members
 
+  G4LogicalVolume* fLogicTarget; // volume used to test messenger class
+
 
   G4Material* fTargetMaterial; // pointer to target material
   G4Material* fCalorMaterial; // pointer to calorimeter material
   G4Material* fWorldMaterial; // pointer to world material
+
+
 
   G4UserLimits* fStepLimit; // pointer to user step limits
 

@@ -46,11 +46,12 @@
 
 DetectorConstruction::DetectorConstruction()
   : G4VUserDetectorConstruction(),
-  fCalorMaterial(NULL), //material of calorimeter
+    fLogicTarget(NULL),
+    fTargetMaterial(NULL), 
+    fCalorMaterial(NULL), //material of calorimeter
     fWorldMaterial(NULL),
-  fStepLimit(NULL), 
-    fCheckOverlaps(true) 
-    //  fCenterToFront(0.)
+    fStepLimit(NULL), 
+    fCheckOverlaps(true)
 {
  fMessenger = new DetectorMessenger(this);
 }
@@ -132,6 +133,7 @@ G4VPhysicalVolume* DetectorConstruction::DefineVolumes()
   G4Material* csI = G4Material::GetMaterial("G4_CESIUM_IODIDE");
 
   fCalorMaterial = csI;
+  fTargetMaterial = csI;
 
   //Sizes and lengths
 
@@ -170,6 +172,32 @@ G4VPhysicalVolume* worldPV
 		      false, //no booleans
 		      0, //copy number
 		      fCheckOverlaps); // true
+
+//Target 
+
+
+ G4double lengthParam = 10.*cm;
+
+ 
+ G4Box* targetS = 
+   new G4Box("target", lengthParam/2, lengthParam/2, lengthParam/2);
+
+ fLogicTarget = new G4LogicalVolume(
+				    targetS, 
+				    fTargetMaterial, 
+				    "Target");
+
+ new G4PVPlacement(0, 
+		    G4ThreeVector(0., 0., worldLength/4), 
+		   fLogicTarget,
+		    "Target", 
+		    worldLV, 
+		    false, 
+		    0, 
+		    fCheckOverlaps);
+
+	     
+
 
  //Calorimeter 
 
@@ -238,6 +266,28 @@ void DetectorConstruction::ConstructSDandField()
   
 
   G4cout << "SD Construction.....Complete!" << G4endl;
+}
+
+void DetectorConstruction::SetTargetMaterial(G4String materialName)
+{
+  G4NistManager* nistMan = G4NistManager::Instance();
+  
+  G4Material* mat = nistMan->FindOrBuildMaterial(materialName); 
+  
+  if (fTargetMaterial != mat) {
+    if (mat)
+      { 
+	fTargetMaterial = mat; 
+	if (fLogicTarget) fLogicTarget->SetMaterial(fTargetMaterial);
+	G4cout << 
+	  G4endl << "-----> The target is made of " << materialName << G4endl;
+      }
+    else
+      {
+	G4cout << "---> WARNING from SetTargetMaterial: " << materialName <<
+	  " not found!" << G4endl;
+      }
+  }
 }
 
 
