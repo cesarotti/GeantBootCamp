@@ -174,6 +174,7 @@ G4VPhysicalVolume* worldPV
 		      fCheckOverlaps); // true
 
 //Target 
+// This is just to illustrate the usage of the messenger class
 
 
  G4double lengthParam = 10.*cm;
@@ -187,6 +188,11 @@ G4VPhysicalVolume* worldPV
 				    fTargetMaterial, 
 				    "Target");
 
+ // To actually place the target, uncomment this 
+ // The DetectorMessenger class can change the material 
+ // of the 'target' just to show an example
+
+ /*
  new G4PVPlacement(0, 
 		    G4ThreeVector(0., 0., worldLength/4), 
 		   fLogicTarget,
@@ -195,7 +201,7 @@ G4VPhysicalVolume* worldPV
 		    false, 
 		    0, 
 		    fCheckOverlaps);
-
+ */
 	     
 
 
