@@ -274,6 +274,9 @@ void DetectorConstruction::ConstructSDandField()
   G4cout << "SD Construction.....Complete!" << G4endl;
 }
 
+
+// This method is used by the DetectorMessenger.cc program
+//
 void DetectorConstruction::SetTargetMaterial(G4String materialName)
 {
   G4NistManager* nistMan = G4NistManager::Instance();
