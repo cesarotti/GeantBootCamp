@@ -48,11 +48,12 @@
 
 DetectorConstruction::DetectorConstruction()
   : G4VUserDetectorConstruction(),
-    fLogicTarget(NULL),
-    fTargetMaterial(NULL), 
+    fLogicCalor(NULL),
+    fPhysCalor(NULL),
+    fNumRing(0), 
     fCalorMaterial(NULL), //material of calorimeter
     fWorldMaterial(NULL),
-    fTargetPos(0.),
+    fCalorPos(0.),
     fStepLimit(NULL), 
     fCheckOverlaps(true)
 {
@@ -136,7 +137,6 @@ G4VPhysicalVolume* DetectorConstruction::DefineVolumes()
   G4Material* csI = G4Material::GetMaterial("G4_CESIUM_IODIDE");
 
   fCalorMaterial = csI;
-  fTargetMaterial = csI;
 
   //Sizes and lengths
 
@@ -176,55 +176,25 @@ G4VPhysicalVolume* worldPV
 		      0, //copy number
 		      fCheckOverlaps); // true
 
-//Target 
-// This is just to illustrate the usage of the messenger class
-
-
- G4double lengthParam = 10.*cm;
-
- 
- G4Box* targetS = 
-   new G4Box("target", lengthParam/2, lengthParam/2, lengthParam/2);
-
- fLogicTarget = new G4LogicalVolume(
-				    targetS, 
-				    fTargetMaterial, 
-				    "Target");
-
- // To actually place the target, uncomment this 
- // The DetectorMessenger class can change the material 
- // of the 'target' just to show an example
-
- /* 
- new G4PVPlacement(0, 
-		    G4ThreeVector(0., 0., fTargetPos), 
-		   fLogicTarget,
-		    "Target", 
-		    worldLV, 
-		    false, 
-		    0, 
-		    fCheckOverlaps);
- */
-	     
-
 
  //Calorimeter 
 
- fTargetPos = worldLength/4;
+ fCalorPos = worldLength/4;
+ fNumRing = 50;
 
- G4int numRing = 50;
+
  G4double crystalWidth = 1.0*cm;
 
 G4VSolid* calorimeterS = 
-  new G4Tubs("calorimeterS", 0., numRing*crystalWidth,
+  new G4Tubs("calorimeterS", 0., fNumRing*crystalWidth,
 	     crystalLength/2, 0.*deg, 360.*deg);
 
-G4LogicalVolume* calorimeterLV = 
+fLogicCalor = 
   new G4LogicalVolume(calorimeterS, Air, "CalorimeterLV");
 
- new G4PVPlacement (0, 
-		    G4ThreeVector(0., 0., fTargetPos), 
-		    calorimeterLV, 
+ fPhysCalor = new G4PVPlacement (0, 
+		    G4ThreeVector(0., 0., fCalorPos), 
+		    fLogicCalor, 
 		    "Calorimeter", 
 		    worldLV,
 		    false, 
@@ -241,14 +211,14 @@ G4LogicalVolume* crystalLV =
 		      fCalorMaterial,
 		      "CrystalLV");
 
- G4VPVParameterisation* crysParam = new RingParam(numRing, 0,
+ G4VPVParameterisation* crysParam = new RingParam(fNumRing, 0,
 						  crystalWidth, crystalLength);
 
  new G4PVParameterised("CrystalPV",
 		       crystalLV, 
-		       calorimeterLV, 
+		       fLogicCalor, 
 		       kZAxis,
-		       numRing, 
+		       fNumRing, 
 		       crysParam, 
 		       fCheckOverlaps);
 
@@ -282,31 +252,31 @@ void DetectorConstruction::ConstructSDandField()
 
 // This method is used by the DetectorMessenger.cc program
 //
-void DetectorConstruction::SetTargetMaterial(G4String materialName)
+void DetectorConstruction::SetCalorMaterial(G4String materialName)
 {
   G4NistManager* nistMan = G4NistManager::Instance();
   
   G4Material* mat = nistMan->FindOrBuildMaterial(materialName); 
   
-  if (fTargetMaterial != mat) {
+  if (fCalorMaterial != mat) {
     if (mat)
       { 
-	fTargetMaterial = mat; 
-	if (fLogicTarget) fLogicTarget->SetMaterial(fTargetMaterial);
+	fCalorMaterial = mat; 
+	if (fLogicCalor) fLogicCalor->SetMaterial(fCalorMaterial);
 	G4cout << 
-	  G4endl << "-----> The target is made of " << materialName << G4endl;
+	  G4endl << "-----> The calor is made of " << materialName << G4endl;
       }
     else
       {
-	G4cout << "---> WARNING from SetTargetMaterial: " << materialName <<
+	G4cout << "---> WARNING from SetCalorMaterial: " << materialName <<
 	  " not found!" << G4endl;
       }
   }
 }
 
-void DetectorConstruction::SetTargetDistance(G4double dist)
+void DetectorConstruction::SetCalorDistance(G4double dist)
 {
-  fTargetPos = dist;
+  fCalorPos = dist;
   G4RunManager::GetRunManager()->GeometryHasBeenModified();
 }
 

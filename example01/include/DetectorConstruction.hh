@@ -40,10 +40,10 @@ public:
 
   //set methods
   //!!!
-  void SetTargetMaterial (G4String );
+  void SetCalorMaterial (G4String );
   void SetMaxStep(G4double );
   void SetCheckOverlaps(G4bool );
-  void SetTargetDistance (G4double );
+  void SetCalorDistance (G4double );
 
   //get methods
   // G4double GetCalorDistance();
@@ -57,14 +57,15 @@ private:
 
   //data members
 
-  G4LogicalVolume* fLogicTarget; // volume used to test messenger class
+  G4LogicalVolume* fLogicCalor; // volume used to test messenger class
+  G4VPhysicalVolume* fPhysCalor; // placement of calorimeter
+  
+  G4int fNumRing; // Number of rings in calorimeter
 
-
-  G4Material* fTargetMaterial; // pointer to target material
   G4Material* fCalorMaterial; // pointer to calorimeter material
   G4Material* fWorldMaterial; // pointer to world material
 
-  G4double fTargetPos; 
+  G4double fCalorPos; 
 
 
   G4UserLimits* fStepLimit; // pointer to user step limits

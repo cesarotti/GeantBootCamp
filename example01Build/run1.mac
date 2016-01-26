@@ -28,5 +28,7 @@
 /gun/particle gamma
 /gun/energy 50 MeV
 
+/example01/det/setTargetDistance 0. m
+
 /run/printProgress 10
-/run/beamOn 100
+/run/beamOn 5
