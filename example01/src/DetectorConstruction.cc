@@ -276,7 +276,17 @@ void DetectorConstruction::SetCalorMaterial(G4String materialName)
 
 void DetectorConstruction::SetCalorDistance(G4double dist)
 {
+ 
+  if (!fPhysCalor)
+    {
+      G4cerr << "Detector has not yet been constructed." << G4endl;
+      return;
+    }
+
   fCalorPos = dist;
+  fPhysCalor->SetTranslation(G4ThreeVector(0., 0., fCalorPos)); 
+
+  //So the run manager knows to update the geometry
   G4RunManager::GetRunManager()->GeometryHasBeenModified();
 }
 
