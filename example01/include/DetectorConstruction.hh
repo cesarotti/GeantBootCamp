@@ -43,6 +43,7 @@ public:
   void SetTargetMaterial (G4String );
   void SetMaxStep(G4double );
   void SetCheckOverlaps(G4bool );
+  void SetTargetDistance (G4double );
 
   //get methods
   // G4double GetCalorDistance();
@@ -63,6 +64,7 @@ private:
   G4Material* fCalorMaterial; // pointer to calorimeter material
   G4Material* fWorldMaterial; // pointer to world material
 
+  G4double fTargetPos; 
 
 
   G4UserLimits* fStepLimit; // pointer to user step limits

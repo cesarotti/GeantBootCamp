@@ -29,6 +29,12 @@ DetectorMessenger::DetectorMessenger(DetectorConstruction* Det)
   fCalMatCmd->SetParameterName("choice",false);
   fCalMatCmd->AvailableForStates(G4State_PreInit, G4State_Idle);
 
+  fTargetPosCmd = new G4UIcmdWithADoubleAndUnit("/example01/det/setTargetDistance", this);
+  fTargetPosCmd->SetGuidance("Define position of target");
+  fTargetPosCmd->SetParameterName("targetPos", false);
+  fTargetPosCmd->SetUnitCategory("Length");
+  fTargetPosCmd->AvailableForStates(G4State_Idle);
+
   fStepMaxCmd = new G4UIcmdWithADoubleAndUnit("/example01/det/stepMax",this);
   fStepMaxCmd->SetGuidance("Define a step max");
   fStepMaxCmd->SetParameterName("stepMax", false);
@@ -42,6 +48,7 @@ DetectorMessenger::~DetectorMessenger()
 {
   delete fCalMatCmd;
   delete fStepMaxCmd;
+  delete fTargetPosCmd;
   delete fDirectory;
   delete fDetDirectory;
 }
@@ -59,4 +66,11 @@ void DetectorMessenger::SetNewValue(G4UIcommand* command,G4String newValue)
       fDetectorConstruction 
 	->SetTargetMaterial(newValue); 
     }
+
+  if( command == fTargetPosCmd)
+    {
+      fDetectorConstruction
+	->SetTargetDistance(fTargetPosCmd->GetNewDoubleValue(newValue));
+    }
+
 }

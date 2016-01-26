@@ -36,6 +36,8 @@
 #include "G4PhysicalConstants.hh"
 #include "G4SystemOfUnits.hh"
 
+#include "G4RunManager.hh"
+
 #include "G4PVParameterised.hh"
 #include "RingParam.hh"
 
@@ -50,6 +52,7 @@ DetectorConstruction::DetectorConstruction()
     fTargetMaterial(NULL), 
     fCalorMaterial(NULL), //material of calorimeter
     fWorldMaterial(NULL),
+    fTargetPos(0.),
     fStepLimit(NULL), 
     fCheckOverlaps(true)
 {
@@ -192,9 +195,9 @@ G4VPhysicalVolume* worldPV
  // The DetectorMessenger class can change the material 
  // of the 'target' just to show an example
 
- /*
+ /* 
  new G4PVPlacement(0, 
-		    G4ThreeVector(0., 0., worldLength/4), 
+		    G4ThreeVector(0., 0., fTargetPos), 
 		   fLogicTarget,
 		    "Target", 
 		    worldLV, 
@@ -207,6 +210,8 @@ G4VPhysicalVolume* worldPV
 
  //Calorimeter 
 
+ fTargetPos = worldLength/4;
+
  G4int numRing = 50;
  G4double crystalWidth = 1.0*cm;
 
@@ -218,7 +223,7 @@ G4LogicalVolume* calorimeterLV =
   new G4LogicalVolume(calorimeterS, Air, "CalorimeterLV");
 
  new G4PVPlacement (0, 
-		    G4ThreeVector(), 
+		    G4ThreeVector(0., 0., fTargetPos), 
 		    calorimeterLV, 
 		    "Calorimeter", 
 		    worldLV,
@@ -297,6 +302,12 @@ void DetectorConstruction::SetTargetMaterial(G4String materialName)
 	  " not found!" << G4endl;
       }
   }
+}
+
+void DetectorConstruction::SetTargetDistance(G4double dist)
+{
+  fTargetPos = dist;
+  G4RunManager::GetRunManager()->GeometryHasBeenModified();
 }
 
 

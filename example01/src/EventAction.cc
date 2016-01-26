@@ -101,6 +101,7 @@ void EventAction::EndOfEventAction(const G4Event* event)
   G4AnalysisManager* analysisMan = G4AnalysisManager::Instance();
 
   G4double energyDep(0.);
+  G4double zPos(0.); // Just to test
 
   for (G4int i=0; i<50; i++)
     {
@@ -111,10 +112,14 @@ void EventAction::EndOfEventAction(const G4Event* event)
 	  energyDep+= eDep;
 	  analysisMan->FillNtupleDColumn(hit->GetCellID(), eDep);
 	}
+      G4cout << hit->GetPos().getZ() << G4endl;
+      if (i==0)
+	zPos = hit->GetPos().getZ();
 
     }
 
   analysisMan->FillNtupleDColumn(50, energyDep);
+  analysisMan->FillNtupleDColumn(51, zPos);
 
   analysisMan->AddNtupleRow();
     

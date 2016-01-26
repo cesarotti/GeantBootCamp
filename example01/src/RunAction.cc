@@ -42,6 +42,7 @@ RunAction::RunAction()
       analysisMan->CreateNtupleDColumn("Energy_Dep"+str);
     }
   analysisMan->CreateNtupleDColumn("Energy_Dep");
+  analysisMan->CreateNtupleDColumn("Z_Pos");
   analysisMan->FinishNtuple();
 }
 
