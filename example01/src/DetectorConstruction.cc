@@ -286,7 +286,7 @@ void DetectorConstruction::SetCalorDistance(G4double dist)
   fCalorPos = dist;
   fPhysCalor->SetTranslation(G4ThreeVector(0., 0., fCalorPos)); 
 
-  //So the run manager knows to update the geometry
+  //So the run manager knows to updaete the geometry
   G4RunManager::GetRunManager()->GeometryHasBeenModified();
 }
 

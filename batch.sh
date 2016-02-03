@@ -3,7 +3,7 @@
 # Run this after compiling Geant4
 
 cd /home/local1/GeantBootCamp/example01Build 
-./example01 run1.mac
+./example01 /home/local1/GeantBootCamp/run1.mac
 mkdir ../batchResults
 currentfolder=$(date +%Y:%m:%d#%H:%M:%S)
 mkdir ../batchResults/$currentfolder

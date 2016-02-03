@@ -112,7 +112,7 @@ void EventAction::EndOfEventAction(const G4Event* event)
 	  energyDep+= eDep;
 	  analysisMan->FillNtupleDColumn(hit->GetCellID(), eDep);
 	}
-      G4cout << hit->GetPos().getZ() << G4endl;
+
       if (i==0)
 	zPos = hit->GetPos().getZ();
 
